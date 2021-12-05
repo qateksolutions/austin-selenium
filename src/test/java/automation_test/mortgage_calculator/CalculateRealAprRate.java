@@ -2,10 +2,9 @@ package automation_test.mortgage_calculator;
 
 import org.testng.annotations.Test;
 import page_objects.NavigationBar;
-import utilities.RetryFailedTests;
 
 public class CalculateRealAprRate extends BaseClassUITests {
-    @Test(retryAnalyzer = RetryFailedTests.class)
+    @Test
     public void calculateRealApr() {
         new NavigationBar(driver)
                 .mouseHoverToRates()
@@ -16,6 +15,6 @@ public class CalculateRealAprRate extends BaseClassUITests {
                 .typeDownPayment("15000")
                 .typeInterestRate("3")
                 .clickOnCalculateButton()
-                .validateRealAprRate("3.131%");
+                .validateRealAprRate("3.130%");
     }
 }

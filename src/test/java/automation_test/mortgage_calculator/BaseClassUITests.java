@@ -30,7 +30,7 @@ public class BaseClassUITests {
 
     @AfterMethod
     public void quitBrowser() {
-        ActOn.browser(driver).close();
+        DriverFactory.getInstance().removeDriver();
         LOGGER.info(endTestCase);
     }
 }
