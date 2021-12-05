@@ -1,20 +1,18 @@
 package automation_test.mortgage_calculator;
 
 import org.testng.annotations.Test;
-import page_objects.NavigationBar;
+import page_objects.Home;
 import utilities.DateUtils;
-import utilities.RetryFailedTests;
 
 public class CalculateMortgageRate extends BaseClassUITests {
-    @Test(retryAnalyzer = RetryFailedTests.class)
+    @Test
     public void calculateMonthlyPayment() {
         String date = DateUtils.returnNextMonth();
         String[] dates = date.split("-");
         String month = dates[0];
         String year = dates[1];
 
-        new NavigationBar(driver)
-                .navigateToHome()
+        new Home(driver)
                 .typeHomePrice("300000")
                 .typeDownPayment("60000")
                 .clickOnDownPaymentInDollar()
