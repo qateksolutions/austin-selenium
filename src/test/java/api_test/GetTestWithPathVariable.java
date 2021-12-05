@@ -5,17 +5,13 @@ import io.restassured.http.Method;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class GetTestWithPathVariable {
-    private static final Logger LOGGER = LogManager.getLogger(GetTestWithPathVariable.class);
-
+public class GetTestWithPathVariable extends BaseClassAPITests {
     @Test
     public void getSingleUser() {
-        LOGGER.info("------------API Test: Get Single with Path Variable----------------");
+        LOGGER.info(testCaseName);
 
         RestAssured.baseURI = "https://reqres.in/api/users";
 
@@ -33,12 +29,12 @@ public class GetTestWithPathVariable {
         String expectedEmailId = "janet.weaver@reqres.in";
         Assert.assertEquals(actualEmailId, expectedEmailId);
 
-        LOGGER.info("------------End Test: Get Single with Path Variable----------------");
+        LOGGER.info(endTestCase);
     }
 
     @Test
     public void attemptToGetUserWithInvalidId() {
-        LOGGER.info("------------API Test: Attempt to retrieve user with Invalid id----------------");
+        LOGGER.info(testCaseName);
 
         RestAssured.baseURI = "https://reqres.in/api/users";
 
@@ -53,6 +49,6 @@ public class GetTestWithPathVariable {
         JsonPath jsonPath = response.jsonPath();
         Assert.assertEquals(jsonPath.get().toString(), "{}");
 
-        LOGGER.info("------------End Test: Attempt to retrieve user with Invalid id----------------");
+        LOGGER.info(endTestCase);
     }
 }
