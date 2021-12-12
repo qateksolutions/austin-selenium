@@ -9,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import page_objects.Home;
 import page_objects.NavigationBar;
 import utilities.DateUtils;
 import utilities.ReadConfigFiles;
@@ -41,8 +42,7 @@ public class CalculateMortgageRateParameterized {
         try {
             ResultSet rs = SqlConnector.readData("select * from monthly_mortgage");
             while (rs.next()) {
-                new NavigationBar(driver)
-                        .navigateToHome()
+                new Home(driver)
                         .typeHomePrice(rs.getString("homevalue"))
                         .typeDownPayment(rs.getString("downpayment"))
                         .clickOnDownPaymentInDollar()

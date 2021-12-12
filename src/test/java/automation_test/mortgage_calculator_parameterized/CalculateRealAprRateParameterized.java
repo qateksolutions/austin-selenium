@@ -9,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import page_objects.Home;
 import page_objects.NavigationBar;
 import paramteres.DataProviderClass;
 import utilities.ReadConfigFiles;
@@ -29,7 +30,7 @@ public class CalculateRealAprRateParameterized {
 
     @Test(dataProvider = "RealAprRates", dataProviderClass = DataProviderClass.class)
     public void calculateRealApr(String homePrice, String downPayment, String interestRate, String expectedApr) {
-        new NavigationBar(driver)
+        new Home(driver)
                 .mouseHoverToRates()
                 .navigateToRealApr()
                 .waitForPageToLoad()

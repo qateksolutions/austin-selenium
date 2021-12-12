@@ -7,7 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
-public class RealApr {
+public class RealApr extends NavigationBar {
     private final By CalculatorTab = By.xpath("//label[text()='Calculator']");
     private final By HomePriceInputField = By.name("HomeValue");
     private final By DownPaymentInDollar = By.name("DownPaymentSel");
@@ -18,10 +18,8 @@ public class RealApr {
 
     private static final Logger LOGGER = LogManager.getLogger(RealApr.class);
 
-    public WebDriver driver;
-
     public RealApr(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
     public RealApr waitForPageToLoad() {
