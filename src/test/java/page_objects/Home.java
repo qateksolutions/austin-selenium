@@ -7,7 +7,7 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class Home {
+public class Home extends NavigationBar {
     private final By HomeValueInputField = By.id("homeval");
     private final By DownPaymentInputField = By.id("downpayment");
     private final By SelectDownPaymentInDollar = By.name("param[downpayment_type]");
@@ -26,10 +26,8 @@ public class Home {
 
     private static final Logger LOGGER = LogManager.getLogger(Home.class);
 
-    public WebDriver driver;
-
     public Home(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
     public Home typeHomePrice(String value) {
